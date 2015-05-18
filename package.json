@@ -1,0 +1,33 @@
+{
+  "name": "gulp-babel-globals",
+  "version": "0.1.0",
+  "description": "Gulp plugin for babel-globals.",
+  "license": "MIT",
+  "repository": "gulp-babel-globals",
+  "author": {
+    "name": "Maira Bello",
+    "email": "maira.araujo@liferay.com"
+  },
+  "engines": {
+    "node": ">=0.12.0"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "istanbul cover nodeunit -- test/test.js"
+  },
+  "keywords": [
+    "babel",
+    "es6",
+    "globals",
+    "gulp"
+  ],
+  "dependencies": {
+    "babel-globals": "^0.1.0",
+    "gulp-util": "^3.0.4",
+    "through2": "^0.6.5",
+    "vinyl-sourcemaps-apply": "^0.1.4"
+  }
+}
