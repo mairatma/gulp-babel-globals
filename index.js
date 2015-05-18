@@ -19,7 +19,14 @@ module.exports = function(options) {
 	}
 
 	function compile(callback) {
-		var bundle = babelGlobals(files, options);
+		try {
+			var bundle = babelGlobals(files, options);
+		} catch (error) {
+			this.emit('error', error);
+			callback();
+			return;
+		}
+
 		var file = new gutil.File({
 	        contents: bundle.content,
 	        path: bundleFileName

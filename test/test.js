@@ -35,6 +35,18 @@ module.exports = {
 			assert.strictEqual('foo.js', bundle.sourceMap.file);
 			test.done();
 		});
+	},
+
+	testErrorInvalidJs: function(test) {
+		buildGlobals(
+			[loadStreamFile('invalid.js')],
+			null,
+			function() {},
+			function(error) {
+				assert.ok(error);
+				test.done();
+			}
+		);
 	}
 };
 
@@ -50,7 +62,7 @@ function loadStreamFile(filePath) {
     });
 }
 
-function buildGlobals(sources, options, callback) {
+function buildGlobals(sources, options, callback, errorCallback) {
     var stream = babelGlobals(options);
     var bundle;
     stream.on('data', function(file) {
@@ -58,6 +70,9 @@ function buildGlobals(sources, options, callback) {
     });
     stream.on('end', function() {
     	callback(bundle);
+    });
+    stream.on('error', function(error) {
+    	errorCallback && errorCallback(error);
     });
     sources.forEach(function(source) {
         stream.write(source);
