@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "Gulp plugin for babel-globals.",
   "license": "MIT",
-  "repository": "gulp-babel-globals",
+  "repository": "mairatma/gulp-babel-globals",
   "author": {
     "name": "Maira Bello",
     "email": "maira.araujo@liferay.com"
