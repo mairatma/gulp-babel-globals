@@ -16,7 +16,9 @@
     "index.js"
   ],
   "scripts": {
-    "test": "istanbul cover nodeunit -- test/test.js"
+    "coverage": "istanbul cover nodeunit -- test/test.js",
+    "lint": "jshint test/test.js index.js",
+    "test": "nodeunit test/test.js"
   },
   "keywords": [
     "babel",
@@ -29,5 +31,10 @@
     "gulp-util": "^3.0.4",
     "through2": "^0.6.5",
     "vinyl-sourcemaps-apply": "^0.1.4"
+  },
+  "devDependencies": {
+    "istanbul": "^0.3.14",
+    "jshint": "^2.7.0",
+    "nodeunit": "^0.9.1"
   }
 }
