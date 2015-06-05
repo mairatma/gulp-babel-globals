@@ -33,6 +33,7 @@
     "vinyl-sourcemaps-apply": "^0.1.4"
   },
   "devDependencies": {
+    "gulp": "^3.9.0",
     "istanbul": "^0.3.14",
     "jshint": "^2.7.0",
     "nodeunit": "^0.9.1"
