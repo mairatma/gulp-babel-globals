@@ -27,14 +27,16 @@
     "gulp"
   ],
   "dependencies": {
-    "babel-globals": "^0.2.0",
+    "babel-globals": "^1.0.1",
     "gulp-util": "^3.0.4",
-    "through2": "^0.6.5",
-    "vinyl-sourcemaps-apply": "^0.1.4"
+    "through2": "^2.0.0",
+    "vinyl-sourcemaps-apply": "^0.2.0"
   },
   "devDependencies": {
+    "babel-plugin-transform-es2015-block-scoping": "^6.0.18",
+    "babel-plugin-transform-es2015-classes": "^6.1.2",
     "gulp": "^3.9.0",
-    "istanbul": "^0.3.14",
+    "istanbul": "^0.4.0",
     "jshint": "^2.7.0",
     "nodeunit": "^0.9.1"
   }
