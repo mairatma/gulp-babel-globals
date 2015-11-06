@@ -1,9 +1,8 @@
+'use strict';
+
 var assert = require('assert');
 var babelGlobals = require('../index');
-var fs = require('fs');
 var gulp = require('gulp');
-var gutil = require('gulp-util');
-var path = require('path');
 
 module.exports = {
 	testBuildGlobals: function(test) {
@@ -17,7 +16,7 @@ module.exports = {
 				assert.ok(bundle);
 				assert.strictEqual('bundle.js', bundle.path);
 
-				eval(bundle.contents.toString());
+				eval(bundle.contents.toString()); // jshint ignore:line
 				assert.ok(this.myGlobals);
 				assert.ok(this.myGlobals.main);
 				assert.strictEqual('foo bar', this.myGlobals.main);
@@ -42,7 +41,7 @@ module.exports = {
 				assert.ok(bundle);
 				assert.strictEqual('foo.js', bundle.path);
 
-				eval(bundle.contents.toString());
+				eval(bundle.contents.toString()); // jshint ignore:line
 				assert.ok(this.myGlobals);
 				assert.ok(this.myGlobals.main);
 				assert.strictEqual('foo bar', this.myGlobals.main);
@@ -60,7 +59,7 @@ module.exports = {
 			.pipe(babelGlobals())
 			.on('error', function(error) {
 				assert.ok(error);
-				test.done()
+				test.done();
 			});
 	}
 };

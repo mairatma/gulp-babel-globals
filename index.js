@@ -19,8 +19,9 @@ module.exports = function(options) {
 	}
 
 	function compile(callback) {
+		var bundle;
 		try {
-			var bundle = babelGlobals(files, options);
+			bundle = babelGlobals(files, options);
 		} catch (error) {
 			this.emit('error', error);
 			callback();
@@ -32,7 +33,7 @@ module.exports = function(options) {
 	        path: bundleFileName
 	    });
 	    sourceMap(file, bundle.sourceMap);
-	    this.push(file);
+	    this.push(file); // jshint ignore:line
 	    callback();
 	}
 
