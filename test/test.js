@@ -7,11 +7,7 @@ var gulp = require('gulp');
 module.exports = {
 	testBuildGlobals: function(test) {
 		gulp.src('test/assets/main.js')
-			.pipe(babelGlobals({
-				babel: {
-					plugins: ['transform-es2015-block-scoping', 'transform-es2015-classes']
-				}
-			}))
+			.pipe(babelGlobals())
 			.on('data', function(bundle) {
 				assert.ok(bundle);
 				assert.strictEqual('bundle.js', bundle.path);
@@ -31,12 +27,7 @@ module.exports = {
 
 	testBuildGlobalsBundleFileName: function(test) {
 		gulp.src('test/assets/main.js')
-			.pipe(babelGlobals({
-				babel: {
-					plugins: ['transform-es2015-block-scoping', 'transform-es2015-classes']
-				},
-				bundleFileName: 'foo.js'
-			}))
+			.pipe(babelGlobals({bundleFileName: 'foo.js'}))
 			.on('data', function(bundle) {
 				assert.ok(bundle);
 				assert.strictEqual('foo.js', bundle.path);
